@@ -6,4 +6,6 @@
     <string name="draw">Draw Here</string>
     <string name="space">\u2423</string>
     <string name="submit">\u27A4</string>
+    <string name="owner"><i>by Wir.Nin</i></string>
+    <string name="hangeultext"><b>hangeul</b>b</string>
 </resources>

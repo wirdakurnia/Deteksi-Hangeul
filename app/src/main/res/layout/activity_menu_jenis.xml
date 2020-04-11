@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bground"
+    tools:context=".Activity.MenuJenis">
+
+    <ImageView
+        android:id="@+id/iconVokal"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="110dp"
+        android:layout_marginTop="3dp"
+        android:elevation="@dimen/default_gap"
+        app:layout_constraintBottom_toBottomOf="@+id/btnVokal"
+        app:layout_constraintEnd_toStartOf="@+id/btnVokal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btnVokal"
+        app:srcCompat="@drawable/icon_vokal" />
+
+    <Button
+        android:id="@+id/btnVokal"
+        android:layout_width="260dp"
+        android:layout_height="65dp"
+        android:background="@drawable/button_pilih"
+        android:onClick="keVokal"
+        android:text="VOKAL"
+        android:textColor="@color/white"
+        android:textSize="10pt"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.255" />
+
+    <ImageView
+        android:id="@+id/iconKonsonan"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="110dp"
+        android:elevation="@dimen/default_gap"
+        app:layout_constraintEnd_toStartOf="@+id/btnKonsonan"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btnKonsonan"
+        app:srcCompat="@drawable/icon_konsonan" />
+
+    <Button
+        android:id="@+id/btnKonsonan"
+        android:layout_width="260dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/button_pilih"
+        android:onClick="keKonsonan"
+        android:text="    KONSONAN"
+        android:textColor="@color/white"
+        android:textSize="10pt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnVokal" />
+
+    <ImageView
+        android:id="@+id/iconKata"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="110dp"
+        android:elevation="@dimen/default_gap"
+        app:layout_constraintEnd_toStartOf="@+id/btnKata"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btnKata"
+        app:srcCompat="@drawable/icon_kata" />
+
+    <Button
+        android:id="@+id/btnKata"
+        android:layout_width="260dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/button_pilih"
+        android:text="KATA"
+        android:textColor="@color/white"
+        android:textSize="10pt"
+        android:onClick="keKata"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnKonsonan" />
+</androidx.constraintlayout.widget.ConstraintLayout>

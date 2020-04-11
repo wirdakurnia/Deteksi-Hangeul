@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "573045300399",
+    "firebase_url": "https://detektorhangeul.firebaseio.com",
+    "project_id": "detektorhangeul",
+    "storage_bucket": "detektorhangeul.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:573045300399:android:f8ab2a1067d56efc5a485a",
+        "android_client_info": {
+          "package_name": "com.wirnin.hanguldetection"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "573045300399-o5c5tfidqrg8p29anj25scvcuv3ednih.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.wirnin.hanguldetection",
+            "certificate_hash": "3d52a17a9c8cc30dc0014ed7b45e3db8cef7e8bb"
+          }
+        },
+        {
+          "client_id": "573045300399-2aulqhcjnjee6pk76lm5mt0j46kl7h70.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAwtiEMOzFzB4pc6cDZcEw2fxLyCBClJKQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "573045300399-2aulqhcjnjee6pk76lm5mt0j46kl7h70.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

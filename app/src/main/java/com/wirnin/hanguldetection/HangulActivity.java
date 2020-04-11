@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import java.util.HashMap;
 
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class HangulActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static final String LABEL_FILE = "40-huruf.txt";
     private static final String MODEL_FILE = "optimized_hangul_tensorflow.pb";
@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_hangul);
 
         paintView = (PaintView) findViewById(R.id.paintView);
 

@@ -9,13 +9,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".Activity.MenuJenis2"></activity>
+        <activity android:name=".Activity.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Activity.LatihanActivity" />
+        <activity android:name=".Activity.MateriActivity" />
+        <activity android:name=".Activity.MateriActivity2" />
+        <activity android:name=".Activity.MenuJenis" />
+        <activity android:name=".Activity.MenuUtama"></activity>
+        <activity android:name=".HangulActivity"></activity>
     </application>
 
 </manifest>
