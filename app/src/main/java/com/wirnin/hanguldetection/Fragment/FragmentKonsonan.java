@@ -36,6 +36,7 @@ public class FragmentKonsonan extends Fragment {
 
     public static String KEY_FRG = "msg_fragment";
     public static String KEY_HURUF = "jenis";
+    public static String KEY_LATIHAN= "jenislatihan";
 
     // [START define_database_reference]
     private DatabaseReference mDatabase;
@@ -44,7 +45,7 @@ public class FragmentKonsonan extends Fragment {
     private FirebaseRecyclerAdapter<Huruf, HurufViewHolder> mAdapter;
     private RecyclerView mRecycler;
     private LinearLayoutManager mManager;
-    String vokalkey;
+    String vokalkey, jenisLatihan;
 
 
     public FragmentKonsonan() {
@@ -74,6 +75,7 @@ public class FragmentKonsonan extends Fragment {
                 .setQuery(query, Huruf.class)
                 .build();
 
+        jenisLatihan = getArguments().getString(KEY_LATIHAN);
 
         mAdapter = new FirebaseRecyclerAdapter<Huruf, HurufViewHolder>(options) {
             @Override
@@ -109,16 +111,27 @@ public class FragmentKonsonan extends Fragment {
                         Bundle data = new Bundle();
                         String msg = huruf.id;
                         String jenis = "konsonan";
+
                         data.putString(FragmentKonsonan.KEY_FRG, msg);
                         data.putString(FragmentKonsonan.KEY_HURUF, jenis);
 
-                        FragmentSoundHuruf sound = new FragmentSoundHuruf();
-                        sound.setArguments(data);
+                        if(jenisLatihan.equals("baca")){
+                            FragmentSoundHuruf sound = new FragmentSoundHuruf();
+                            sound.setArguments(data);
 
-                        FragmentManager FM = getActivity().getSupportFragmentManager();
-                        FragmentTransaction FT = FM.beginTransaction();
-                        FT.replace(R.id.isi_jenis, sound);
-                        FT.commit();
+                            FragmentManager FM = getActivity().getSupportFragmentManager();
+                            FragmentTransaction FT = FM.beginTransaction();
+                            FT.replace(R.id.isi_materi_baca, sound);
+                            FT.commit();
+                        }else{
+                            FragmentTulisHangul tulis = new FragmentTulisHangul();
+                            tulis.setArguments(data);
+
+                            FragmentManager FM = getActivity().getSupportFragmentManager();
+                            FragmentTransaction FT = FM.beginTransaction();
+                            FT.replace(R.id.isi_materi_tulis, tulis);
+                            FT.commit();
+                        }
                     }
 
                 });

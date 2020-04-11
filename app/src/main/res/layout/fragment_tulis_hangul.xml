@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bground"
-    tools:context=".Fragment.FragmentSoundHuruf2">
+    tools:context=".Fragment.FragmentTulisHangul">
 
     <ImageButton
         android:id="@+id/buttonBack"
@@ -21,7 +21,7 @@
         android:id="@+id/ln"
         android:layout_width="110dp"
         android:layout_height="110dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="30dp"
         android:background="@drawable/round_item"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -46,7 +46,6 @@
         android:paddingLeft="16dp"
         android:paddingRight="16dp"
         android:paddingTop="16dp"
-        tools:context=".HangulActivity"
         android:weightSum="1">
 
 
@@ -54,12 +53,13 @@
             android:id="@+id/paintViewLayout"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:layout_marginTop="120dp">
 
             <com.wirnin.hanguldetection.PaintView
                 android:id="@+id/paintView"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"/>
 
             <TextView
                 android:id="@+id/drawHere"

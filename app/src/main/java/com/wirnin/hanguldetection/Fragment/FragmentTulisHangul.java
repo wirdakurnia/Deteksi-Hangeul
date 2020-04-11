@@ -1,19 +1,21 @@
 package com.wirnin.hanguldetection.Fragment;
 
 
-import android.content.res.AssetManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.accessibility.AccessibilityManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -29,21 +31,17 @@ import com.wirnin.hanguldetection.R;
 import java.io.IOException;
 import java.util.HashMap;
 
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-
 /**
  * A simple {@link Fragment} subclass.
  */
-public class FragmentSoundHuruf2 extends Fragment {
+public class FragmentTulisHangul extends Fragment implements View.OnClickListener{
     public static String KEY_FRG = "msg_fragment";
     public static String KEY_HURUF = "jenis";
 
-    TextView txtHangeul;
-    ImageButton btnBack;
+    TextView txtHangeul, txtRomanzi, txtLafal;
+    ImageButton btnSound, btnBack;
     Query query;
-    String hangeul;
+    String hangeul, romanzi, lafal, sound;
 
     private static final String LABEL_FILE = "40-huruf.txt";
     private static final String MODEL_FILE = "optimized_hangul_tensorflow.pb";
@@ -66,85 +64,50 @@ public class FragmentSoundHuruf2 extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        View rootview = inflater.inflate(R.layout.fragment_tulis_hangul, container, false);
 
-        View rootview = inflater.inflate(R.layout.fragment_sound_huruf2, container, false);
-
-        paintView = rootview.findViewById(R.id.paintView);
-
-        TextView drawHereText = (TextView) rootview.findViewById(R.id.drawHere);
-        paintView.setDrawText(drawHereText);
-
-        Button clearButton = (Button) rootview.findViewById(R.id.buttonClear);
-        clearButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                clear();
-            }
-        });
-
-        Button classifyButton = (Button) rootview.findViewById(R.id.buttonClassify);
-        classifyButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                classify();
-                paintView.reset();
-                paintView.invalidate();
-            }
-        });
-
-        Button backspaceButton = (Button) rootview.findViewById(R.id.buttonBackspace);
-        backspaceButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                backspace();
-                altLayout.setVisibility(View.INVISIBLE);
-                paintView.reset();
-                paintView.invalidate();
-            }
-        });
-
-        Button spaceButton = (Button) rootview.findViewById(R.id.buttonSpace);
-        spaceButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                space();
-            }
-        });
-
-        Button submitButton = (Button) rootview.findViewById(R.id.buttonSubmit);
-        submitButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                altLayout.setVisibility(View.INVISIBLE);
-                translate();
-            }
-        });
-
-        altLayout = (LinearLayout) rootview.findViewById(R.id.altLayout);
-        altLayout.setVisibility(View.INVISIBLE);
-
-//        alt1 = (Button) rootview.findViewById(R.id.alt1);
-//        alt1.setOnClickListener(this);
-//        alt2 = (Button) findViewById(R.id.alt2);
-//        alt2.setOnClickListener(this);
-//        alt3 = (Button) findViewById(R.id.alt3);
-//        alt3.setOnClickListener(this);
-//        alt4 = (Button) findViewById(R.id.alt4);
-//        alt4.setOnClickListener(this);
-
-        translationText = (TextView) rootview.findViewById(R.id.translationText);
-        resultText = (EditText) rootview.findViewById(R.id.editText);
-
-        loadModel();
+        String key = getArguments().getString(KEY_FRG);
+        String jenishuruf = getArguments().getString(KEY_HURUF);
 
         txtHangeul = rootview.findViewById(R.id.txtHangeul);
         btnBack = rootview.findViewById(R.id.buttonBack);
 
-        //assert getArguments() != null;
-        String key = getArguments().getString(KEY_FRG);
-        String jenishuruf = getArguments().getString(KEY_HURUF);
-
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
+
+        paintView = rootview.findViewById(R.id.paintView);
+
+        TextView drawHereText = rootview.findViewById(R.id.drawHere);
+        paintView.setDrawText(drawHereText);
+
+        Button clearButton = rootview.findViewById(R.id.buttonClear);
+        clearButton.setOnClickListener(this);
+
+        Button classifyButton = rootview.findViewById(R.id.buttonClassify);
+        classifyButton.setOnClickListener(this);
+
+        Button backspaceButton = rootview.findViewById(R.id.buttonBackspace);
+        backspaceButton.setOnClickListener(this);
+
+        Button spaceButton = rootview.findViewById(R.id.buttonSpace);
+        spaceButton.setOnClickListener(this);
+
+        Button submitButton = rootview.findViewById(R.id.buttonSubmit);
+        submitButton.setOnClickListener(this);
+
+        altLayout = rootview.findViewById(R.id.altLayout);
+        altLayout.setVisibility(View.INVISIBLE);
+
+        alt1 = rootview.findViewById(R.id.alt1);
+        alt1.setOnClickListener(this);
+        alt2 = rootview.findViewById(R.id.alt2);
+        alt2.setOnClickListener(this);
+        alt3 = rootview.findViewById(R.id.alt3);
+        alt3.setOnClickListener(this);
+        alt4 = rootview.findViewById(R.id.alt4);
+        alt4.setOnClickListener(this);
+
+        translationText = rootview.findViewById(R.id.translationText);
+        resultText = rootview.findViewById(R.id.editText);
 
         if(jenishuruf.equals("vokal")){
             query = reference.child("vokal").orderByChild("id").equalTo(key);
@@ -162,10 +125,9 @@ public class FragmentSoundHuruf2 extends Fragment {
                         btnBack.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
-                                loadFragment(new FragmentVokal2());
+                                loadFragment(new FragmentVokal());
                             }
                         });
-
                     }
                 }
 
@@ -175,7 +137,7 @@ public class FragmentSoundHuruf2 extends Fragment {
                 }
             });
 
-        }else if(jenishuruf.equals("konsonan")){
+        }else{
             query = reference.child("konsonan").orderByChild("id").equalTo(key);
             query.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
@@ -190,7 +152,7 @@ public class FragmentSoundHuruf2 extends Fragment {
                         btnBack.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
-                                loadFragment(new FragmentKonsonan2());
+                                loadFragment(new FragmentKonsonan());
                             }
                         });
                     }
@@ -201,13 +163,19 @@ public class FragmentSoundHuruf2 extends Fragment {
 
                 }
             });
-        }else {
-            Toast.makeText(getActivity(), "error", Toast.LENGTH_SHORT).show();
         }
 
+        loadModel();
+
+        // Inflate the layout for this fragment
         return rootview;
     }
 
+    /**
+     * This method is called when the user clicks a button in the view.
+     * @param view
+     */
+    @Override
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.buttonClear:
@@ -240,11 +208,51 @@ public class FragmentSoundHuruf2 extends Fragment {
         }
     }
 
-    private void useAltLabel(int index) {
-        backspace();
-        resultText.append(currentTopLabels[index]);
+    /**
+     * Delete the last character in the text input field.
+     */
+    private void backspace() {
+        int len = resultText.getText().length();
+        if (len > 0) {
+            resultText.getText().delete(len - 1, len);
+        }
     }
 
+    /**
+     * Add a space to the text input.
+     */
+    private void space() {
+        resultText.append(" ");
+    }
+
+    /**
+     * Clear the text and drawing to return to the beginning state.
+     */
+    private void clear() {
+        paintView.reset();
+        paintView.invalidate();
+        resultText.setText("");
+        translationText.setText("");
+        altLayout.setVisibility(View.INVISIBLE);
+    }
+
+    /**
+     * Perform the classification, updating UI elements with the results.
+     */
+    private void classify() {
+        float pixels[] = paintView.getPixelData();
+        currentTopLabels = classifier.classify(pixels);
+        resultText.append(currentTopLabels[0]);
+        altLayout.setVisibility(View.VISIBLE);
+        alt1.setText(currentTopLabels[1]);
+        alt2.setText(currentTopLabels[2]);
+        alt3.setText(currentTopLabels[3]);
+        alt4.setText(currentTopLabels[4]);
+    }
+
+    /**
+     * Perform the translation using the current Korean text in the text input field.
+     */
     private void translate() {
         String text = resultText.getText().toString();
         if (text.isEmpty()) {
@@ -261,51 +269,41 @@ public class FragmentSoundHuruf2 extends Fragment {
         translator.execute();
     }
 
-    private void space() {
-        resultText.append(" ");
+    /**
+     * This function will switch out the last classified character with the alternative given the
+     * index in the top labels array.
+     */
+    private void useAltLabel(int index) {
+        backspace();
+        resultText.append(currentTopLabels[index]);
     }
 
-    private void backspace() {
-        int len = resultText.getText().length();
-        if (len > 0) {
-            resultText.getText().delete(len - 1, len);
-        }
+    @Override
+    public void onResume() {
+        paintView.onResume();
+        super.onResume();
     }
 
-    private void classify() {
-        float pixels[] = paintView.getPixelData();
-        currentTopLabels = classifier.classify(pixels);
-        resultText.append(currentTopLabels[0]);
-        altLayout.setVisibility(View.VISIBLE);
-        alt1.setText(currentTopLabels[1]);
-        alt2.setText(currentTopLabels[2]);
-        alt3.setText(currentTopLabels[3]);
-        alt4.setText(currentTopLabels[4]);
+    @Override
+    public void onPause() {
+        paintView.onPause();
+        super.onPause();
     }
 
-    private void clear() {
-        paintView.reset();
-        paintView.invalidate();
-        resultText.setText("");
-        translationText.setText("");
-        altLayout.setVisibility(View.INVISIBLE);
-    }
-
+    /**
+     * Load pre-trained model in memory.
+     */
     private void loadModel() {
         new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
-                    classifier = HangulClassifier.create(getAccess(),
+                    classifier = HangulClassifier.create(getActivity().getAssets(),
                             MODEL_FILE, LABEL_FILE, PaintView.FEED_DIMENSION,
                             "input", "keep_prob", "output");
                 } catch (final Exception e) {
                     throw new RuntimeException("Error loading pre-trained model.", e);
                 }
-            }
-
-            private AssetManager getAccess() {
-                throw new RuntimeException("Stub!");
             }
         }).start();
     }

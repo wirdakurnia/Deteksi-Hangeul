@@ -105,7 +105,7 @@ public class FragmentKata extends Fragment {
 
                         FragmentManager FM = getActivity().getSupportFragmentManager();
                         FragmentTransaction FT = FM.beginTransaction();
-                        FT.replace(R.id.isi_jenis, sound);
+                        FT.replace(R.id.isi_materi_baca, sound);
                         FT.commit();
                     }
 

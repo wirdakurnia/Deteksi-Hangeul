@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.wirnin.hanguldetection.HangulActivity;
 import com.wirnin.hanguldetection.R;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,7 +17,7 @@ public class MenuUtama extends AppCompatActivity {
     }
 
     public void keMenuBaca(View view) {
-        Intent menuBaca = new Intent(getApplicationContext(), MenuJenis.class);
+        Intent menuBaca = new Intent(getApplicationContext(), MenuBaca.class);
         startActivity(menuBaca);
     }
 
@@ -28,7 +27,7 @@ public class MenuUtama extends AppCompatActivity {
     }
 
     public void keMenuPenulisan(View view) {
-        Intent menuNulis = new Intent(getApplicationContext(), MenuJenis2.class);
+        Intent menuNulis = new Intent(getApplicationContext(), MenuTulis.class);
         startActivity(menuNulis);
     }
 }

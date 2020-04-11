@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bground"
-    tools:context=".Activity.MenuJenis">
+    tools:context=".Activity.MenuBaca">
 
     <ImageView
         android:id="@+id/iconVokal"

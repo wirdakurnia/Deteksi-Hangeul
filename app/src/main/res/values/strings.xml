@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TensorFlow Hangul Recognition</string>
+    <string name="app_name">Belajar Hangeul</string>
     <string name="backspace">\u232B</string>
     <string name="classify">Classify</string>
     <string name="clear">Clear</string>
@@ -8,4 +8,7 @@
     <string name="submit">\u27A4</string>
     <string name="owner"><i>by Wir.Nin</i></string>
     <string name="hangeultext"><b>hangeul</b>b</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

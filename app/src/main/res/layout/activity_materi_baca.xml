@@ -5,12 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bground"
-    tools:context=".Activity.MateriActivity">
+    tools:context=".Activity.MateriBacaActivity">
 
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/isi_jenis">
+        android:id="@+id/isi_materi_baca">
 
     </FrameLayout>
 

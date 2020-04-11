@@ -4,12 +4,12 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/mainlogo"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Activity.MenuJenis2"></activity>
+        <activity android:name=".Activity.MenuTulis"></activity>
         <activity android:name=".Activity.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,11 +18,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".Activity.LatihanActivity" />
-        <activity android:name=".Activity.MateriActivity" />
-        <activity android:name=".Activity.MateriActivity2" />
-        <activity android:name=".Activity.MenuJenis" />
+        <activity android:name=".Activity.MateriBacaActivity" />
+        <activity android:name=".Activity.MateriTulisActivity" />
+        <activity android:name=".Activity.MenuBaca" />
         <activity android:name=".Activity.MenuUtama"></activity>
-        <activity android:name=".HangulActivity"></activity>
     </application>
 
 </manifest>
