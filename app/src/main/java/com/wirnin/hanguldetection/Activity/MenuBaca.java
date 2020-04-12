@@ -2,6 +2,9 @@ package com.wirnin.hanguldetection.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 
 import com.wirnin.hanguldetection.R;
@@ -9,6 +12,28 @@ import com.wirnin.hanguldetection.R;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MenuBaca extends AppCompatActivity {
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
+
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.backtohome,menu);
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item){
+        switch (item.getItemId()){
+            case R.id.backHome:
+                Intent backhome = new Intent(getApplicationContext(), MenuUtama.class);
+
+                startActivity(backhome);
+
+                return true;
+
+        }
+        return false;
+    }
+
     String jenis;
     private String KEY_JENIS = "JENIS";
 
