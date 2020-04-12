@@ -68,8 +68,6 @@ public class FragmentVokal extends Fragment {
                 .setQuery(query, Huruf.class)
                 .build();
 
-        jenisLatihan = getArguments().getString(KEY_LATIHAN);
-
         mAdapter = new FirebaseRecyclerAdapter<Huruf, HurufViewHolder>(options) {
             @Override
             public HurufViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -100,6 +98,8 @@ public class FragmentVokal extends Fragment {
 
                                      }
                                 });
+
+                        jenisLatihan = getArguments().getString(KEY_LATIHAN);
 
                         Bundle data = new Bundle();
                         String msg = huruf.id;

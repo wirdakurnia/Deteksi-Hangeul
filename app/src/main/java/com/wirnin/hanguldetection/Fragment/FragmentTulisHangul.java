@@ -16,6 +16,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -23,6 +24,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.wirnin.hanguldetection.Activity.LatihanActivity;
 import com.wirnin.hanguldetection.HangulClassifier;
 import com.wirnin.hanguldetection.HangulTranslator;
 import com.wirnin.hanguldetection.PaintView;
@@ -48,10 +50,8 @@ public class FragmentTulisHangul extends Fragment implements View.OnClickListene
 
     private HangulClassifier classifier;
     private PaintView paintView;
-    private Button alt1, alt2, alt3, alt4;
     private LinearLayout altLayout;
     private EditText resultText;
-    private TextView translationText;
     private String[] currentTopLabels;
 
     private void loadFragment(Fragment fragment) {
@@ -79,8 +79,6 @@ public class FragmentTulisHangul extends Fragment implements View.OnClickListene
         TextView drawHereText = rootview.findViewById(R.id.drawHere);
         paintView.setDrawText(drawHereText);
 
-        Button clearButton = rootview.findViewById(R.id.buttonClear);
-        clearButton.setOnClickListener(this);
 
         Button classifyButton = rootview.findViewById(R.id.buttonClassify);
         classifyButton.setOnClickListener(this);
@@ -88,8 +86,6 @@ public class FragmentTulisHangul extends Fragment implements View.OnClickListene
         Button backspaceButton = rootview.findViewById(R.id.buttonBackspace);
         backspaceButton.setOnClickListener(this);
 
-        Button spaceButton = rootview.findViewById(R.id.buttonSpace);
-        spaceButton.setOnClickListener(this);
 
         Button submitButton = rootview.findViewById(R.id.buttonSubmit);
         submitButton.setOnClickListener(this);
@@ -97,16 +93,6 @@ public class FragmentTulisHangul extends Fragment implements View.OnClickListene
         altLayout = rootview.findViewById(R.id.altLayout);
         altLayout.setVisibility(View.INVISIBLE);
 
-        alt1 = rootview.findViewById(R.id.alt1);
-        alt1.setOnClickListener(this);
-        alt2 = rootview.findViewById(R.id.alt2);
-        alt2.setOnClickListener(this);
-        alt3 = rootview.findViewById(R.id.alt3);
-        alt3.setOnClickListener(this);
-        alt4 = rootview.findViewById(R.id.alt4);
-        alt4.setOnClickListener(this);
-
-        translationText = rootview.findViewById(R.id.translationText);
         resultText = rootview.findViewById(R.id.editText);
 
         if(jenishuruf.equals("vokal")){
@@ -178,9 +164,6 @@ public class FragmentTulisHangul extends Fragment implements View.OnClickListene
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.buttonClear:
-                clear();
-                break;
             case R.id.buttonClassify:
                 classify();
                 paintView.reset();
@@ -192,18 +175,9 @@ public class FragmentTulisHangul extends Fragment implements View.OnClickListene
                 paintView.reset();
                 paintView.invalidate();
                 break;
-            case R.id.buttonSpace:
-                space();
-                break;
             case R.id.buttonSubmit:
                 altLayout.setVisibility(View.INVISIBLE);
                 translate();
-                break;
-            case R.id.alt1:
-            case R.id.alt2:
-            case R.id.alt3:
-            case R.id.alt4:
-                useAltLabel(Integer.parseInt(view.getTag().toString()));
                 break;
         }
     }
@@ -218,23 +192,6 @@ public class FragmentTulisHangul extends Fragment implements View.OnClickListene
         }
     }
 
-    /**
-     * Add a space to the text input.
-     */
-    private void space() {
-        resultText.append(" ");
-    }
-
-    /**
-     * Clear the text and drawing to return to the beginning state.
-     */
-    private void clear() {
-        paintView.reset();
-        paintView.invalidate();
-        resultText.setText("");
-        translationText.setText("");
-        altLayout.setVisibility(View.INVISIBLE);
-    }
 
     /**
      * Perform the classification, updating UI elements with the results.
@@ -244,10 +201,6 @@ public class FragmentTulisHangul extends Fragment implements View.OnClickListene
         currentTopLabels = classifier.classify(pixels);
         resultText.append(currentTopLabels[0]);
         altLayout.setVisibility(View.VISIBLE);
-        alt1.setText(currentTopLabels[1]);
-        alt2.setText(currentTopLabels[2]);
-        alt3.setText(currentTopLabels[3]);
-        alt4.setText(currentTopLabels[4]);
     }
 
     /**
@@ -255,18 +208,12 @@ public class FragmentTulisHangul extends Fragment implements View.OnClickListene
      */
     private void translate() {
         String text = resultText.getText().toString();
-        if (text.isEmpty()) {
-            return;
-        }
 
-        HashMap<String, String> postData = new HashMap<>();
-        postData.put("text", text);
-        postData.put("source", "ko");
-        postData.put("target", "en");
-        String apikey = getResources().getString(R.string.apikey);
-        String url = getResources().getString(R.string.url);
-        HangulTranslator translator = new HangulTranslator(postData, translationText, apikey, url);
-        translator.execute();
+        if(text.equals(hangeul)){
+            Toast.makeText(getActivity(), "Benar", Toast.LENGTH_SHORT).show();
+        }else{
+            Toast.makeText(getActivity(), "Salah", Toast.LENGTH_SHORT).show();
+        }
     }
 
     /**

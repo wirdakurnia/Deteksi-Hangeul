@@ -75,7 +75,6 @@ public class FragmentKonsonan extends Fragment {
                 .setQuery(query, Huruf.class)
                 .build();
 
-        jenisLatihan = getArguments().getString(KEY_LATIHAN);
 
         mAdapter = new FirebaseRecyclerAdapter<Huruf, HurufViewHolder>(options) {
             @Override
@@ -111,6 +110,8 @@ public class FragmentKonsonan extends Fragment {
                         Bundle data = new Bundle();
                         String msg = huruf.id;
                         String jenis = "konsonan";
+
+                        jenisLatihan = getArguments().getString(KEY_LATIHAN);
 
                         data.putString(FragmentKonsonan.KEY_FRG, msg);
                         data.putString(FragmentKonsonan.KEY_HURUF, jenis);
