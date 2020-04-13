@@ -31,10 +31,10 @@
         android:textSize="10pt"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.65"
+        app:layout_constraintHorizontal_bias="0.648"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.229" />
+        app:layout_constraintVertical_bias="0.343" />
 
     <Button
         android:id="@+id/btnLatihan"
@@ -46,10 +46,12 @@
         android:text="LATIHAN"
         android:textColor="@color/white"
         android:textSize="10pt"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.65"
+        app:layout_constraintHorizontal_bias="0.648"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnTulis" />
+        app:layout_constraintTop_toBottomOf="@+id/btnTulis"
+        app:layout_constraintVertical_bias="0.009" />
 
     <ImageView
         android:id="@+id/iconMarker"

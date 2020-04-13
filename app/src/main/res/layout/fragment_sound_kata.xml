@@ -12,10 +12,13 @@
         android:id="@+id/buttonBack"
         android:layout_width="68dp"
         android:layout_height="70dp"
-        android:layout_marginEnd="340dp"
+        android:layout_marginEnd="244dp"
+        android:layout_marginBottom="16dp"
         android:background="@drawable/back"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.161"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/img_kata"
