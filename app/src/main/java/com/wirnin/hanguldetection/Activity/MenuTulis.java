@@ -1,6 +1,7 @@
 package com.wirnin.hanguldetection.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,28 +13,6 @@ import android.view.View;
 import com.wirnin.hanguldetection.R;
 
 public class MenuTulis extends AppCompatActivity {
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu)
-    {
-
-        MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.backtohome,menu);
-        return true;
-    }
-
-    public boolean onOptionsItemSelected(MenuItem item){
-        switch (item.getItemId()){
-            case R.id.backHome:
-                Intent backhome = new Intent(getApplicationContext(), MenuUtama.class);
-
-                startActivity(backhome);
-
-                return true;
-
-        }
-        return false;
-    }
-
     String jenis;
     private String KEY_JENIS = "JENIS";
 
@@ -41,6 +20,19 @@ public class MenuTulis extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_tulis);
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitle(R.string.app_name);
+        toolbar.setNavigationIcon(R.drawable.homekecil);
+        toolbar.setNavigationOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent backhome = new Intent(getApplicationContext(), MenuUtama.class);
+                        startActivity(backhome);
+                    }
+                }
+        );
     }
     public void keVokal(View view) {
         jenis = "vokal";

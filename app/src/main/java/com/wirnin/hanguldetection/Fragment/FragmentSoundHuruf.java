@@ -1,6 +1,7 @@
 package com.wirnin.hanguldetection.Fragment;
 
 
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -16,10 +17,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.wirnin.hanguldetection.Activity.MenuUtama;
 import com.wirnin.hanguldetection.R;
 
 import java.io.IOException;
 
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -48,6 +51,19 @@ public class FragmentSoundHuruf extends Fragment {
                              Bundle savedInstanceState) {
 
         View rootview = inflater.inflate(R.layout.fragment_sound_huruf, container, false);
+
+        Toolbar toolbar = rootview.findViewById(R.id.toolbar);
+        toolbar.setTitle(R.string.app_name);
+        toolbar.setNavigationIcon(R.drawable.homekecil);
+        toolbar.setNavigationOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent backhome = new Intent(getActivity(), MenuUtama.class);
+                        startActivity(backhome);
+                    }
+                }
+        );
 
         txtHangeul = rootview.findViewById(R.id.txtHangeul);
         txtRomanzi = rootview.findViewById(R.id.txtRomanzi);

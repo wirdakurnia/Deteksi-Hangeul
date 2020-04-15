@@ -1,6 +1,7 @@
 package com.wirnin.hanguldetection.Fragment;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -15,11 +16,13 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.wirnin.hanguldetection.Activity.MenuUtama;
 import com.wirnin.hanguldetection.Huruf;
 import com.wirnin.hanguldetection.HurufViewHolder;
 import com.wirnin.hanguldetection.R;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -57,6 +60,19 @@ public class FragmentKonsonan extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View rootview = inflater.inflate(R.layout.fragment_konsonan, container, false);
+
+        Toolbar toolbar = rootview.findViewById(R.id.toolbar);
+        toolbar.setTitle(R.string.app_name);
+        toolbar.setNavigationIcon(R.drawable.homekecil);
+        toolbar.setNavigationOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent backhome = new Intent(getActivity(), MenuUtama.class);
+                        startActivity(backhome);
+                    }
+                }
+        );
 
         mDatabase = FirebaseDatabase.getInstance().getReference();
 

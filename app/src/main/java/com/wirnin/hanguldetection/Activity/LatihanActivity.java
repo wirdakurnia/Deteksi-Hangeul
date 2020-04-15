@@ -24,30 +24,9 @@ import java.util.Random;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 public class LatihanActivity extends AppCompatActivity {
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu)
-    {
-
-        MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.backtohome,menu);
-        return true;
-    }
-
-    public boolean onOptionsItemSelected(MenuItem item){
-        switch (item.getItemId()){
-            case R.id.backHome:
-                Intent backhome = new Intent(getApplicationContext(), MenuUtama.class);
-
-                startActivity(backhome);
-
-                return true;
-
-        }
-        return false;
-    }
-
 //    private TextView questionView;
     private ImageButton nextButton;
     private Button  pilihan1, pilihan2, pilihan3;
@@ -69,6 +48,18 @@ public class LatihanActivity extends AppCompatActivity {
 
         displayQuestion();
 
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitle(R.string.app_name);
+        toolbar.setNavigationIcon(R.drawable.homekecil);
+        toolbar.setNavigationOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent backhome = new Intent(getApplicationContext(), MenuUtama.class);
+                        startActivity(backhome);
+                    }
+                }
+        );
 
 
         nextButton.setOnClickListener(new View.OnClickListener() {

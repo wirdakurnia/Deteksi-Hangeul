@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.wirnin.hanguldetection.Fragment.FragmentKata;
 import com.wirnin.hanguldetection.Fragment.FragmentKonsonan;
@@ -12,32 +13,11 @@ import com.wirnin.hanguldetection.Fragment.FragmentVokal;
 import com.wirnin.hanguldetection.R;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 public class MateriBacaActivity extends AppCompatActivity {
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu)
-    {
-
-        MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.backtohome,menu);
-        return true;
-    }
-
-    public boolean onOptionsItemSelected(MenuItem item){
-        switch (item.getItemId()){
-            case R.id.backHome:
-                Intent backhome = new Intent(getApplicationContext(), MenuUtama.class);
-
-                startActivity(backhome);
-
-                return true;
-
-        }
-        return false;
-    }
-
     private String KEY_JENIS = "JENIS";
     private String jenis;
     public static String KEY_LATIHAN = "jenislatihan";
@@ -46,6 +26,19 @@ public class MateriBacaActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_materi_baca);
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitle(R.string.app_name);
+        toolbar.setNavigationIcon(R.drawable.homekecil);
+        toolbar.setNavigationOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent backhome = new Intent(getApplicationContext(), MenuUtama.class);
+                        startActivity(backhome);
+                    }
+                }
+        );
 
         Bundle extras = getIntent().getExtras();
         jenis = extras.getString(KEY_JENIS);

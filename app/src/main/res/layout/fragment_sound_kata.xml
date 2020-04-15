@@ -8,6 +8,17 @@
     android:background="@drawable/bground"
     tools:context=".Fragment.FragmentSoundHuruf">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:titleTextColor="@android:color/white"></androidx.appcompat.widget.Toolbar>
+
     <ImageButton
         android:id="@+id/buttonBack"
         android:layout_width="68dp"
@@ -24,7 +35,7 @@
         android:id="@+id/img_kata"
         android:layout_width="110dp"
         android:layout_height="110dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="80dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"

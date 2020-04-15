@@ -1,9 +1,11 @@
 package com.wirnin.hanguldetection.Fragment;
 
 
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
@@ -25,6 +27,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.wirnin.hanguldetection.Activity.LatihanActivity;
+import com.wirnin.hanguldetection.Activity.MenuUtama;
 import com.wirnin.hanguldetection.HangulClassifier;
 import com.wirnin.hanguldetection.HangulTranslator;
 import com.wirnin.hanguldetection.PaintView;
@@ -39,14 +42,15 @@ import java.util.HashMap;
 public class FragmentTulisHangul extends Fragment implements View.OnClickListener{
     public static String KEY_FRG = "msg_fragment";
     public static String KEY_HURUF = "jenis";
-
-    TextView txtHangeul, txtRomanzi, txtLafal;
-    ImageButton btnSound, btnBack;
-    Query query;
-    String hangeul, romanzi, lafal, sound;
-
     private static final String LABEL_FILE = "40-huruf.txt";
     private static final String MODEL_FILE = "optimized_hangul_tensorflow.pb";
+
+    TextView txtHangeul, drawHereText;
+    ImageButton btnBack;
+    Query query;
+    String hangeul;
+    DatabaseReference reference;
+    Button classifyButton, backspaceButton, submitButton;
 
     private HangulClassifier classifier;
     private PaintView paintView;
@@ -66,28 +70,39 @@ public class FragmentTulisHangul extends Fragment implements View.OnClickListene
                              Bundle savedInstanceState) {
         View rootview = inflater.inflate(R.layout.fragment_tulis_hangul, container, false);
 
+        Toolbar toolbar = rootview.findViewById(R.id.toolbar);
+        toolbar.setTitle(R.string.app_name);
+        toolbar.setNavigationIcon(R.drawable.homekecil);
+        toolbar.setNavigationOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent backhome = new Intent(getActivity(), MenuUtama.class);
+                        startActivity(backhome);
+                    }
+                }
+        );
+
         String key = getArguments().getString(KEY_FRG);
         String jenishuruf = getArguments().getString(KEY_HURUF);
 
         txtHangeul = rootview.findViewById(R.id.txtHangeul);
         btnBack = rootview.findViewById(R.id.buttonBack);
 
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
+        reference = FirebaseDatabase.getInstance().getReference();
 
         paintView = rootview.findViewById(R.id.paintView);
 
-        TextView drawHereText = rootview.findViewById(R.id.drawHere);
+        drawHereText = rootview.findViewById(R.id.drawHere);
         paintView.setDrawText(drawHereText);
 
-
-        Button classifyButton = rootview.findViewById(R.id.buttonClassify);
+        classifyButton = rootview.findViewById(R.id.buttonClassify);
         classifyButton.setOnClickListener(this);
 
-        Button backspaceButton = rootview.findViewById(R.id.buttonBackspace);
+        backspaceButton = rootview.findViewById(R.id.buttonBackspace);
         backspaceButton.setOnClickListener(this);
 
-
-        Button submitButton = rootview.findViewById(R.id.buttonSubmit);
+        submitButton = rootview.findViewById(R.id.buttonSubmit);
         submitButton.setOnClickListener(this);
 
         altLayout = rootview.findViewById(R.id.altLayout);
