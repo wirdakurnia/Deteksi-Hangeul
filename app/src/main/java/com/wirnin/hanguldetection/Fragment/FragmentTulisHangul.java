@@ -1,8 +1,10 @@
 package com.wirnin.hanguldetection.Fragment;
 
 
+import android.app.Dialog;
 import android.content.Intent;
-import android.media.MediaPlayer;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
 import androidx.appcompat.widget.Toolbar;
@@ -16,6 +18,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,15 +29,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
-import com.wirnin.hanguldetection.Activity.LatihanActivity;
 import com.wirnin.hanguldetection.Activity.MenuUtama;
 import com.wirnin.hanguldetection.HangulClassifier;
-import com.wirnin.hanguldetection.HangulTranslator;
 import com.wirnin.hanguldetection.PaintView;
 import com.wirnin.hanguldetection.R;
-
-import java.io.IOException;
-import java.util.HashMap;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -45,12 +43,14 @@ public class FragmentTulisHangul extends Fragment implements View.OnClickListene
     private static final String LABEL_FILE = "40-huruf.txt";
     private static final String MODEL_FILE = "optimized_hangul_tensorflow.pb";
 
-    TextView txtHangeul, drawHereText;
+    TextView txtHangeul, drawHereText, txtclose, text_jawaban;
     ImageButton btnBack;
     Query query;
     String hangeul;
     DatabaseReference reference;
-    Button classifyButton, backspaceButton, submitButton;
+    Button classifyButton, backspaceButton;
+    Dialog myDialog;
+    ImageView img_jawaban;
 
     private HangulClassifier classifier;
     private PaintView paintView;
@@ -86,6 +86,8 @@ public class FragmentTulisHangul extends Fragment implements View.OnClickListene
         String key = getArguments().getString(KEY_FRG);
         String jenishuruf = getArguments().getString(KEY_HURUF);
 
+        myDialog = new Dialog(getContext());
+
         txtHangeul = rootview.findViewById(R.id.txtHangeul);
         btnBack = rootview.findViewById(R.id.buttonBack);
 
@@ -101,9 +103,6 @@ public class FragmentTulisHangul extends Fragment implements View.OnClickListene
 
         backspaceButton = rootview.findViewById(R.id.buttonBackspace);
         backspaceButton.setOnClickListener(this);
-
-        submitButton = rootview.findViewById(R.id.buttonSubmit);
-        submitButton.setOnClickListener(this);
 
         altLayout = rootview.findViewById(R.id.altLayout);
         altLayout.setVisibility(View.INVISIBLE);
@@ -183,16 +182,13 @@ public class FragmentTulisHangul extends Fragment implements View.OnClickListene
                 classify();
                 paintView.reset();
                 paintView.invalidate();
+                cekPenulisan();
                 break;
             case R.id.buttonBackspace:
                 backspace();
                 altLayout.setVisibility(View.INVISIBLE);
                 paintView.reset();
                 paintView.invalidate();
-                break;
-            case R.id.buttonSubmit:
-                altLayout.setVisibility(View.INVISIBLE);
-                translate();
                 break;
         }
     }
@@ -201,10 +197,11 @@ public class FragmentTulisHangul extends Fragment implements View.OnClickListene
      * Delete the last character in the text input field.
      */
     private void backspace() {
-        int len = resultText.getText().length();
-        if (len > 0) {
-            resultText.getText().delete(len - 1, len);
-        }
+//        int len = resultText.getText().length();
+//        if (len > 0) {
+//            resultText.getText().delete(len - 1, len);
+//        }
+        resultText.setText("");
     }
 
 
@@ -221,13 +218,13 @@ public class FragmentTulisHangul extends Fragment implements View.OnClickListene
     /**
      * Perform the translation using the current Korean text in the text input field.
      */
-    private void translate() {
+    private void cekPenulisan() {
         String text = resultText.getText().toString();
 
         if(text.equals(hangeul)){
-            Toast.makeText(getActivity(), "Benar", Toast.LENGTH_SHORT).show();
+            showPopupBenar();
         }else{
-            Toast.makeText(getActivity(), "Salah", Toast.LENGTH_SHORT).show();
+            showPopupSalah();
         }
     }
 
@@ -250,6 +247,37 @@ public class FragmentTulisHangul extends Fragment implements View.OnClickListene
     public void onPause() {
         paintView.onPause();
         super.onPause();
+    }
+
+    public void showPopupBenar() {
+
+        myDialog.setContentView(R.layout.popup);
+        txtclose = myDialog.findViewById(R.id.txtclose);
+        txtclose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                myDialog.dismiss();
+            }
+        });
+        myDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        myDialog.show();
+    }
+
+    public void showPopupSalah() {
+        myDialog.setContentView(R.layout.popup);
+        text_jawaban = myDialog.findViewById(R.id.text_jawaban);
+        text_jawaban.setText("Jawaban Salah");
+        img_jawaban = myDialog.findViewById(R.id.img_jawaban);
+        img_jawaban.setImageResource(R.drawable.sadicon);
+        txtclose = myDialog.findViewById(R.id.txtclose);
+        txtclose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                myDialog.dismiss();
+            }
+        });
+        myDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        myDialog.show();
     }
 
     /**

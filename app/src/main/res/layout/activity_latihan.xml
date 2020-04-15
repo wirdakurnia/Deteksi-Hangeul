@@ -61,23 +61,21 @@
         android:id="@+id/pilihan3"
         android:layout_width="160dp"
         android:layout_height="50dp"
-        android:layout_marginBottom="96dp"
+        android:layout_marginTop="30dp"
         android:background="@drawable/button_pilih"
         android:text="Pilihan 3"
         android:textColor="@color/white"
         android:textSize="12pt"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pilihan2"
-        app:layout_constraintVertical_bias="0.73" />
+        app:layout_constraintTop_toBottomOf="@+id/pilihan2" />
 
     <Button
         android:id="@+id/pilihan2"
         android:layout_width="160dp"
         android:layout_height="50dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="30dp"
         android:background="@drawable/button_pilih"
         android:text="Pilihan 2"
         android:textColor="@color/white"
