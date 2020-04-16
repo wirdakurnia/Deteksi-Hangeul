@@ -32,8 +32,8 @@
 
     <LinearLayout
         android:id="@+id/ln"
-        android:layout_width="110dp"
-        android:layout_height="110dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_marginTop="80dp"
         android:background="@drawable/round_item"
         app:layout_constraintEnd_toEndOf="parent"

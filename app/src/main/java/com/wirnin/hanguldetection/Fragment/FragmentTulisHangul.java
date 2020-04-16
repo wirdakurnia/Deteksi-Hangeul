@@ -50,7 +50,7 @@ public class FragmentTulisHangul extends Fragment implements View.OnClickListene
     DatabaseReference reference;
     Button classifyButton, backspaceButton;
     Dialog myDialog;
-    ImageView img_jawaban;
+    ImageView img_jawaban, icon_next;
 
     private HangulClassifier classifier;
     private PaintView paintView;
@@ -250,9 +250,10 @@ public class FragmentTulisHangul extends Fragment implements View.OnClickListene
     }
 
     public void showPopupBenar() {
-
         myDialog.setContentView(R.layout.popup);
+        icon_next = myDialog.findViewById(R.id.icon_next);
         txtclose = myDialog.findViewById(R.id.txtclose);
+        icon_next.setVisibility(View.INVISIBLE);
         txtclose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -269,6 +270,8 @@ public class FragmentTulisHangul extends Fragment implements View.OnClickListene
         text_jawaban.setText("Jawaban Salah");
         img_jawaban = myDialog.findViewById(R.id.img_jawaban);
         img_jawaban.setImageResource(R.drawable.sadicon);
+        icon_next = myDialog.findViewById(R.id.icon_next);
+        icon_next.setVisibility(View.INVISIBLE);
         txtclose = myDialog.findViewById(R.id.txtclose);
         txtclose.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -1,6 +1,9 @@
 package com.wirnin.hanguldetection.Activity;
 
+import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -10,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -28,18 +32,22 @@ import androidx.appcompat.widget.Toolbar;
 
 public class LatihanActivity extends AppCompatActivity {
 //    private TextView questionView;
-    private ImageButton nextButton;
+    //private ImageButton nextButton;
     private Button  pilihan1, pilihan2, pilihan3;
     private ImageView imgs;
-
+    Dialog myDialog;
+    ImageView img_jawaban, icon_next;
+    TextView txtclose, text_jawaban;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_latihan);
 
+        myDialog = new Dialog(this);
+
 //        questionView = findViewById(R.id.textView);
-        nextButton = findViewById(R.id.buttonNext);
+        //nextButton = findViewById(R.id.buttonNext);
         imgs =  findViewById(R.id.imageView);
 
         pilihan1 = findViewById(R.id.pilihan1);
@@ -62,12 +70,12 @@ public class LatihanActivity extends AppCompatActivity {
         );
 
 
-        nextButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                displayQuestion();
-            }
-        });
+//        nextButton.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                displayQuestion();
+//            }
+//        });
     }
 
 
@@ -99,10 +107,9 @@ public class LatihanActivity extends AppCompatActivity {
                                 @Override
                                 public void onClick(View view) {
                                     if(pilihan1.getText().toString().equals(soalLatihan.getHangeul())){
-                                        Toast.makeText(LatihanActivity.this, "Benar", Toast.LENGTH_SHORT).show();
-                                        displayQuestion();
+                                        showPopupBenar();
                                     }else{
-                                        Toast.makeText(LatihanActivity.this, "Salah", Toast.LENGTH_SHORT).show();
+                                        showPopupSalah();
                                     }
                                 }
                             });
@@ -111,10 +118,9 @@ public class LatihanActivity extends AppCompatActivity {
                                 @Override
                                 public void onClick(View view) {
                                     if(pilihan2.getText().toString().equals(soalLatihan.getHangeul())){
-                                        Toast.makeText(LatihanActivity.this, "Benar", Toast.LENGTH_SHORT).show();
-                                        displayQuestion();
+                                        showPopupBenar();
                                     }else{
-                                        Toast.makeText(LatihanActivity.this, "Salah", Toast.LENGTH_SHORT).show();
+                                        showPopupSalah();
                                     }
                                 }
                             });
@@ -123,21 +129,16 @@ public class LatihanActivity extends AppCompatActivity {
                                 @Override
                                 public void onClick(View view) {
                                     if(pilihan3.getText().toString().equals(soalLatihan.getHangeul())){
-                                        Toast.makeText(LatihanActivity.this, "Benar", Toast.LENGTH_SHORT).show();
-                                        displayQuestion();
+                                        showPopupBenar();
                                     }else{
-                                        Toast.makeText(LatihanActivity.this, "Salah", Toast.LENGTH_SHORT).show();
+                                        showPopupSalah();
                                     }
                                 }
                             });
 
                             return;
 
-
-
                         } count += 1;
-
-
                     }
                 }
             }
@@ -149,6 +150,44 @@ public class LatihanActivity extends AppCompatActivity {
         });
     }
 
+    public void showPopupBenar() {
+        myDialog.setContentView(R.layout.popup);
+        txtclose = myDialog.findViewById(R.id.txtclose);
+        txtclose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                myDialog.dismiss();
+            }
+        });
+        icon_next = myDialog.findViewById(R.id.icon_next);
+        icon_next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                displayQuestion();
+                myDialog.dismiss();
+            }
+        });
+        myDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        myDialog.show();
+    }
 
+    public void showPopupSalah() {
+        myDialog.setContentView(R.layout.popup);
+        text_jawaban = myDialog.findViewById(R.id.text_jawaban);
+        text_jawaban.setText("Jawaban Salah");
+        img_jawaban = myDialog.findViewById(R.id.img_jawaban);
+        img_jawaban.setImageResource(R.drawable.sadicon);
+        icon_next = myDialog.findViewById(R.id.icon_next);
+        icon_next.setVisibility(View.INVISIBLE);
+        txtclose = myDialog.findViewById(R.id.txtclose);
+        txtclose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                myDialog.dismiss();
+            }
+        });
+        myDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        myDialog.show();
+    }
 
 }
