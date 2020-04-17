@@ -33,6 +33,7 @@ import androidx.fragment.app.FragmentTransaction;
  */
 public class FragmentSoundKata extends Fragment {
     public static String KEY_FRG = "msg_fragment";
+    public static String KEY_LATIHAN = "jenislatihan";
 
     TextView txtHangeul, txtArti, txtLafal;
     ImageButton btnSound, btnBack;
@@ -71,6 +72,10 @@ public class FragmentSoundKata extends Fragment {
                 }
         );
 
+        final Bundle data = new Bundle();
+        String jenisLatihan = "baca";
+        data.putString(FragmentSoundKata.KEY_LATIHAN, jenisLatihan);
+
         txtHangeul = rootview.findViewById(R.id.txtRomanzi);
         txtArti = rootview.findViewById(R.id.txtArti);
         txtLafal = rootview.findViewById(R.id.txtLafal);
@@ -105,7 +110,13 @@ public class FragmentSoundKata extends Fragment {
                     btnBack.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            loadFragment(new FragmentKata());
+                            //loadFragment(new FragmentKata());
+                            FragmentKata kata = new FragmentKata();
+                            kata.setArguments(data);
+                            FragmentManager FM = getFragmentManager();
+                            FragmentTransaction FT = FM.beginTransaction();
+                            FT.replace(R.id.frameLayout, kata);
+                            FT.commit();
                         }
                     });
 

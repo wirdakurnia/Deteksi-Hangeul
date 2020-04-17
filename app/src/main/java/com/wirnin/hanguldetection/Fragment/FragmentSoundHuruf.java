@@ -17,6 +17,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.wirnin.hanguldetection.Activity.MateriBacaActivity;
 import com.wirnin.hanguldetection.Activity.MenuUtama;
 import com.wirnin.hanguldetection.R;
 
@@ -33,6 +34,7 @@ import androidx.fragment.app.FragmentTransaction;
 public class FragmentSoundHuruf extends Fragment {
     public static String KEY_FRG = "msg_fragment";
     public static String KEY_HURUF = "jenis";
+    public static String KEY_LATIHAN = "jenislatihan";
 
     TextView txtHangeul, txtRomanzi, txtLafal;
     ImageButton btnSound, btnBack;
@@ -64,6 +66,10 @@ public class FragmentSoundHuruf extends Fragment {
                     }
                 }
         );
+
+        final Bundle data = new Bundle();
+        String jenisLatihan = "baca";
+        data.putString(FragmentSoundHuruf.KEY_LATIHAN, jenisLatihan);
 
         txtHangeul = rootview.findViewById(R.id.txtHangeul);
         txtRomanzi = rootview.findViewById(R.id.txtRomanzi);
@@ -98,7 +104,13 @@ public class FragmentSoundHuruf extends Fragment {
                         btnBack.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
-                                loadFragment(new FragmentVokal());
+                                //loadFragment(new FragmentVokal());
+                                FragmentVokal vokal = new FragmentVokal();
+                                vokal.setArguments(data);
+                                FragmentManager FM = getFragmentManager();
+                                FragmentTransaction FT = FM.beginTransaction();
+                                FT.replace(R.id.frameLayout, vokal);
+                                FT.commit();
                             }
                         });
 
@@ -150,7 +162,13 @@ public class FragmentSoundHuruf extends Fragment {
                         btnBack.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
-                                loadFragment(new FragmentKonsonan());
+                                //loadFragment(new FragmentKonsonan());
+                                FragmentKonsonan konsonan = new FragmentKonsonan();
+                                konsonan.setArguments(data);
+                                FragmentManager FM = getFragmentManager();
+                                FragmentTransaction FT = FM.beginTransaction();
+                                FT.replace(R.id.frameLayout, konsonan);
+                                FT.commit();
                             }
                         });
                         btnSound.setOnClickListener(new View.OnClickListener() {

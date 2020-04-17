@@ -42,6 +42,7 @@ public class FragmentTulisHangul extends Fragment implements View.OnClickListene
     public static String KEY_HURUF = "jenis";
     private static final String LABEL_FILE = "40-huruf.txt";
     private static final String MODEL_FILE = "optimized_hangul_tensorflow.pb";
+    public static String KEY_LATIHAN = "jenislatihan";
 
     TextView txtHangeul, drawHereText, txtclose, text_jawaban;
     ImageButton btnBack;
@@ -82,6 +83,10 @@ public class FragmentTulisHangul extends Fragment implements View.OnClickListene
                     }
                 }
         );
+
+        final Bundle data = new Bundle();
+        String jenisLatihan = "tulis";
+        data.putString(FragmentTulisHangul.KEY_LATIHAN, jenisLatihan);
 
         String key = getArguments().getString(KEY_FRG);
         String jenishuruf = getArguments().getString(KEY_HURUF);
@@ -125,7 +130,13 @@ public class FragmentTulisHangul extends Fragment implements View.OnClickListene
                         btnBack.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
-                                loadFragment(new FragmentVokal());
+                                //loadFragment(new FragmentVokal());
+                                FragmentVokal vokal = new FragmentVokal();
+                                vokal.setArguments(data);
+                                FragmentManager FM = getFragmentManager();
+                                FragmentTransaction FT = FM.beginTransaction();
+                                FT.replace(R.id.frameLayout, vokal);
+                                FT.commit();
                             }
                         });
                     }
@@ -152,7 +163,13 @@ public class FragmentTulisHangul extends Fragment implements View.OnClickListene
                         btnBack.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
-                                loadFragment(new FragmentKonsonan());
+                                //loadFragment(new FragmentKonsonan());
+                                FragmentKonsonan konsonan = new FragmentKonsonan();
+                                konsonan.setArguments(data);
+                                FragmentManager FM = getFragmentManager();
+                                FragmentTransaction FT = FM.beginTransaction();
+                                FT.replace(R.id.frameLayout, konsonan);
+                                FT.commit();
                             }
                         });
                     }
@@ -185,7 +202,7 @@ public class FragmentTulisHangul extends Fragment implements View.OnClickListene
                 cekPenulisan();
                 break;
             case R.id.buttonBackspace:
-                backspace();
+                resultText.setText("");
                 altLayout.setVisibility(View.INVISIBLE);
                 paintView.reset();
                 paintView.invalidate();
@@ -197,11 +214,11 @@ public class FragmentTulisHangul extends Fragment implements View.OnClickListene
      * Delete the last character in the text input field.
      */
     private void backspace() {
-//        int len = resultText.getText().length();
-//        if (len > 0) {
-//            resultText.getText().delete(len - 1, len);
-//        }
-        resultText.setText("");
+        int len = resultText.getText().length();
+        if (len > 0) {
+            resultText.getText().delete(len - 1, len);
+        }
+        //resultText.setText("");
     }
 
 
@@ -233,7 +250,7 @@ public class FragmentTulisHangul extends Fragment implements View.OnClickListene
      * index in the top labels array.
      */
     private void useAltLabel(int index) {
-        backspace();
+        //backspace();
         resultText.append(currentTopLabels[index]);
     }
 
@@ -258,6 +275,7 @@ public class FragmentTulisHangul extends Fragment implements View.OnClickListene
             @Override
             public void onClick(View v) {
                 myDialog.dismiss();
+                backspace();
             }
         });
         myDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
@@ -277,6 +295,7 @@ public class FragmentTulisHangul extends Fragment implements View.OnClickListene
             @Override
             public void onClick(View v) {
                 myDialog.dismiss();
+                backspace();
             }
         });
         myDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
