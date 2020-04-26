@@ -9,10 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme2">
-        <activity android:name=".Activity.PenyusunanHuruf"></activity>
-        <activity
-            android:name=".Activity.MenuTulis"
-            android:launchMode="singleInstance" />
+
+        <activity android:name=".Activity.MenuTulis"
+            android:launchMode="singleInstance"></activity>
         <activity android:name=".Activity.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,21 +19,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".Activity.LatihanActivity"
-            android:launchMode="singleInstance" />
-        <activity
-            android:name=".Activity.MateriBacaActivity"
-            android:launchMode="singleInstance" />
-        <activity
-            android:name=".Activity.MateriTulisActivity"
-            android:launchMode="singleInstance" />
-        <activity
-            android:name=".Activity.MenuBaca"
-            android:launchMode="singleInstance" />
-        <activity
-            android:name=".Activity.MenuUtama"
-            android:launchMode="singleInstance" />
+        <activity android:name=".Activity.LatihanActivity"
+            android:launchMode="singleInstance"/>
+        <activity android:name=".Activity.MateriBacaActivity"
+            android:launchMode="singleInstance"/>
+        <activity android:name=".Activity.MateriTulisActivity"
+            android:launchMode="singleInstance"/>
+        <activity android:name=".Activity.MenuBaca"
+            android:launchMode="singleInstance"/>
+        <activity android:name=".Activity.MenuUtama"
+            android:launchMode="singleInstance"/>
+        <activity android:name=".Activity.MenuPercakapan"
+            android:launchMode="singleInstance">
+        </activity>
     </application>
 
 </manifest>

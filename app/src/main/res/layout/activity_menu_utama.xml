@@ -34,7 +34,24 @@
         app:layout_constraintHorizontal_bias="0.648"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.175" />
+        app:layout_constraintVertical_bias="0.343" />
+
+    <Button
+        android:id="@+id/btnLatihan"
+        android:layout_width="300dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/button_pilih"
+        android:onClick="keMenuLatihan"
+        android:text="LATIHAN"
+        android:textColor="@color/white"
+        android:textSize="10pt"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.648"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnTulis"
+        app:layout_constraintVertical_bias="0.009" />
 
     <ImageView
         android:id="@+id/iconMarker"
@@ -46,6 +63,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/btnTulis"
         app:srcCompat="@drawable/icon_marker" />
+
+    <ImageView
+        android:id="@+id/iconFight"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginStart="90dp"
+        android:elevation="@dimen/default_gap"
+        app:layout_constraintEnd_toStartOf="@+id/btnLatihan"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btnLatihan"
+        app:srcCompat="@drawable/icon_fight" />
 
     <Button
         android:id="@+id/btnTulis"
@@ -63,59 +91,28 @@
         app:layout_constraintTop_toBottomOf="@+id/btnBaca" />
 
     <ImageView
-        android:id="@+id/iconSusun"
+        android:id="@+id/iconCakap"
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_marginStart="90dp"
         android:elevation="@dimen/default_gap"
-        app:layout_constraintEnd_toStartOf="@+id/btnPenyusunan"
+        app:layout_constraintEnd_toStartOf="@+id/btnCakap"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/btnPenyusunan"
-        app:srcCompat="@drawable/icon_puzzle" />
-
-    <Button
-        android:id="@+id/btnPenyusunan"
-        android:layout_width="300dp"
-        android:layout_height="65dp"
-        android:layout_marginTop="40dp"
-        android:background="@drawable/button_pilih"
-        android:onClick="keMenuPenyusunan"
-        android:text="     PENYUSUNAN HURUF"
-        android:textColor="@color/white"
-        android:textSize="10pt"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.648"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnTulis"
-        app:layout_constraintVertical_bias="0.009" />
-
-    <ImageView
-        android:id="@+id/iconFight"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="90dp"
-        android:elevation="@dimen/default_gap"
-        app:layout_constraintEnd_toStartOf="@+id/btnLatihan"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/btnLatihan"
+        app:layout_constraintTop_toTopOf="@+id/btnCakap"
         app:srcCompat="@drawable/icon_fight" />
 
     <Button
-        android:id="@+id/btnLatihan"
+        android:id="@+id/btnCakap"
         android:layout_width="300dp"
         android:layout_height="65dp"
         android:layout_marginTop="40dp"
         android:background="@drawable/button_pilih"
-        android:onClick="keMenuLatihan"
-        android:text="LATIHAN"
+        android:text="     PERCAKAPAN DASAR"
+        android:onClick="keMenuPercakapan"
         android:textColor="@color/white"
         android:textSize="10pt"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.648"
+        app:layout_constraintHorizontal_bias="0.65"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnPenyusunan"
-        app:layout_constraintVertical_bias="0.009" />
-
+        app:layout_constraintTop_toBottomOf="@+id/btnLatihan" />
 </androidx.constraintlayout.widget.ConstraintLayout>
