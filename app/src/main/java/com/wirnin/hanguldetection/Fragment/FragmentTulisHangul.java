@@ -29,6 +29,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.squareup.picasso.Picasso;
 import com.wirnin.hanguldetection.Activity.MenuUtama;
 import com.wirnin.hanguldetection.HangulClassifier;
 import com.wirnin.hanguldetection.PaintView;
@@ -44,14 +45,14 @@ public class FragmentTulisHangul extends Fragment implements View.OnClickListene
     private static final String MODEL_FILE = "optimized_hangul_tensorflow.pb";
     public static String KEY_LATIHAN = "jenislatihan";
 
-    TextView txtHangeul, drawHereText, txtclose, text_jawaban;
+    TextView txtHangeul, drawHereText, txtclose, text_jawaban, txtHuruf;
     ImageButton btnBack;
     Query query;
-    String hangeul;
+    String hangeul, alur, huruf;
     DatabaseReference reference;
     Button classifyButton, backspaceButton;
     Dialog myDialog;
-    ImageView img_jawaban, icon_next;
+    ImageView img_jawaban, icon_next, img_alur;
 
     private HangulClassifier classifier;
     private PaintView paintView;
@@ -114,6 +115,9 @@ public class FragmentTulisHangul extends Fragment implements View.OnClickListene
 
         resultText = rootview.findViewById(R.id.editText);
 
+        img_alur = rootview.findViewById(R.id.img_alur);
+        txtHuruf = rootview.findViewById(R.id.txtHuruf);
+
         if(jenishuruf.equals("vokal")){
             query = reference.child("vokal").orderByChild("id").equalTo(key);
             query.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -124,8 +128,12 @@ public class FragmentTulisHangul extends Fragment implements View.OnClickListene
                         for (DataSnapshot vokals : dataSnapshot.getChildren()) {
                             // do something with the individual "issues"
                             hangeul = vokals.child("hangeul").getValue().toString();
+                            alur = vokals.child("alur").getValue().toString();
+                            huruf = vokals.child("huruf").getValue().toString();
                         }
                         txtHangeul.setText(hangeul);
+                        txtHuruf.setText("("+huruf+")");
+                        Picasso.get().load(alur).into(img_alur);
 
                         btnBack.setOnClickListener(new View.OnClickListener() {
                             @Override
@@ -158,8 +166,12 @@ public class FragmentTulisHangul extends Fragment implements View.OnClickListene
                         for (DataSnapshot konsonans : dataSnapshot.getChildren()) {
                             // do something with the individual "issues"
                             hangeul = konsonans.child("hangeul").getValue().toString();
+                            alur = konsonans.child("alur").getValue().toString();
+                            huruf = konsonans.child("huruf").getValue().toString();
                         }
                         txtHangeul.setText(hangeul);
+                        txtHuruf.setText("("+huruf+")");
+                        Picasso.get().load(alur).into(img_alur);
                         btnBack.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {

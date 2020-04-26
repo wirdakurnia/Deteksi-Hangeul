@@ -34,4 +34,9 @@ public class MenuUtama extends AppCompatActivity {
         Intent menuNulis = new Intent(getApplicationContext(), MenuTulis.class);
         startActivity(menuNulis);
     }
+
+    public void keMenuPenyusunan(View view) {
+        Intent menuPenyusunan = new Intent(getApplicationContext(), PenyusunanHuruf.class);
+        startActivity(menuPenyusunan);
+    }
 }
