@@ -41,9 +41,9 @@ import com.wirnin.hanguldetection.R;
 public class FragmentTulisHangul extends Fragment implements View.OnClickListener{
     public static String KEY_FRG = "msg_fragment";
     public static String KEY_HURUF = "jenis";
+    public static String KEY_LATIHAN = "jenislatihan";
     private static final String LABEL_FILE = "40-huruf.txt";
     private static final String MODEL_FILE = "optimized_hangul_tensorflow.pb";
-    public static String KEY_LATIHAN = "jenislatihan";
 
     TextView txtHangeul, drawHereText, txtclose, text_jawaban, txtHuruf;
     ImageButton btnBack;
@@ -230,7 +230,6 @@ public class FragmentTulisHangul extends Fragment implements View.OnClickListene
         if (len > 0) {
             resultText.getText().delete(len - 1, len);
         }
-        //resultText.setText("");
     }
 
 
@@ -255,15 +254,6 @@ public class FragmentTulisHangul extends Fragment implements View.OnClickListene
         }else{
             showPopupSalah();
         }
-    }
-
-    /**
-     * This function will switch out the last classified character with the alternative given the
-     * index in the top labels array.
-     */
-    private void useAltLabel(int index) {
-        //backspace();
-        resultText.append(currentTopLabels[index]);
     }
 
     @Override

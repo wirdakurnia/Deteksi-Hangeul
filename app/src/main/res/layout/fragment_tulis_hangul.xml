@@ -81,7 +81,6 @@
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="-83dp">
 
-
         <RelativeLayout
             android:id="@+id/paintViewLayout"
             android:layout_width="match_parent"
@@ -192,8 +191,8 @@
 
         <ImageButton
             android:id="@+id/buttonBack"
-            android:layout_width="63dp"
-            android:layout_height="65dp"
+            android:layout_width="60dp"
+            android:layout_height="62dp"
             android:layout_marginEnd="340dp"
             android:background="@drawable/back" />
 
