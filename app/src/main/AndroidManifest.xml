@@ -32,6 +32,9 @@
         <activity android:name=".Activity.MenuPercakapan"
             android:launchMode="singleInstance">
         </activity>
+        <activity android:name=".Activity.PenyusunanSukuKata"
+            android:launchMode="singleInstance">
+        </activity>
     </application>
 
 </manifest>

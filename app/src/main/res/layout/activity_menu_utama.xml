@@ -79,8 +79,8 @@
         android:layout_height="65dp"
         android:layout_marginTop="30dp"
         android:background="@drawable/button_pilih"
+        android:text="     PENYUSUNAN\nSUKU KATA"
         android:onClick="keMenuPenyusunan"
-        android:text="     PENYUSUNAN HURUF"
         android:textColor="@color/white"
         android:textSize="10pt"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -89,7 +89,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnTulis"
         app:layout_constraintVertical_bias="0.009" />
-
 
     <ImageView
         android:id="@+id/iconFight"

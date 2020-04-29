@@ -1,17 +1,12 @@
 package com.wirnin.hanguldetection.Activity;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 
 import com.wirnin.hanguldetection.R;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 public class MenuUtama extends AppCompatActivity {
     @Override
@@ -41,7 +36,7 @@ public class MenuUtama extends AppCompatActivity {
     }
 
     public void keMenuPenyusunan(View view) {
-        Intent menuPenyusunan = new Intent(getApplicationContext(), PenyusunanHuruf.class);
+        Intent menuPenyusunan = new Intent(getApplicationContext(), PenyusunanSukuKata.class);
         startActivity(menuPenyusunan);
     }
 }

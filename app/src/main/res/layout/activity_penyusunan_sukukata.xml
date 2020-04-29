@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bground"
+    tools:context=".Activity.PenyusunanSukuKata">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:titleTextColor="@android:color/white"></androidx.appcompat.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="80dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:padding="12dp"
+        android:background="@drawable/kotak_putih"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/kotak_putih"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+                <ImageView
+                    android:id="@+id/icon_satu"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/icon_satu"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.054"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"></ImageView>
+
+                <ImageView
+                    android:id="@+id/imageView1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="40dp"
+                    android:src="@drawable/sk_1"
+                    app:layout_constraintStart_toEndOf="@+id/icon_satu"
+                    app:layout_constraintTop_toTopOf="@+id/icon_satu"></ImageView>
+
+                <TextView
+                    android:id="@+id/isi_satu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="40dp"
+                    android:text="Contoh"
+                    android:textColor="@color/black"
+                    android:textSize="8pt"
+                    app:layout_constraintStart_toEndOf="@+id/icon_satu"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView1" />
+
+                <ImageView
+                    android:id="@+id/icon_dua"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/icon_dua"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.054"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/icon_satu"></ImageView>
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="40dp"
+                    android:src="@drawable/sk_2"
+                    app:layout_constraintStart_toEndOf="@+id/icon_dua"
+                    app:layout_constraintTop_toTopOf="@+id/icon_dua"></ImageView>
+
+                <TextView
+                    android:id="@+id/isi_dua"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="40dp"
+                    android:text="Contoh"
+                    android:textColor="@color/black"
+                    android:textSize="8pt"
+                    app:layout_constraintStart_toEndOf="@+id/icon_dua"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+                <TextView
+                    android:id="@+id/textMarker"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:text="*"
+                    android:textColor="@color/red"
+                    android:textSize="10pt"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.017"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/icon_dua" />
+
+                <TextView
+                    android:id="@+id/textKet"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="ket1"
+                    android:textColor="@color/black"
+                    android:textSize="8pt"
+                    app:layout_constraintStart_toEndOf="@+id/textMarker"
+                    app:layout_constraintTop_toTopOf="@+id/textMarker" />
+
+                <TextView
+                    android:id="@+id/textMarker2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="*"
+                    android:textColor="@color/red"
+                    android:textSize="10pt"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.017"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textMarker" />
+
+                <TextView
+                    android:id="@+id/textKet2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="ket2"
+                    android:textColor="@color/black"
+                    android:textSize="8pt"
+                    app:layout_constraintStart_toEndOf="@+id/textMarker2"
+                    app:layout_constraintTop_toTopOf="@+id/textMarker2" />
+
+                <TextView
+                    android:id="@+id/textMarker3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="*"
+                    android:textColor="@color/red"
+                    android:textSize="10pt"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.017"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textMarker2" />
+
+                <TextView
+                    android:id="@+id/textKet3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="ket3"
+                    android:textColor="@color/black"
+                    android:textSize="8pt"
+                    app:layout_constraintStart_toEndOf="@+id/textMarker3"
+                    app:layout_constraintTop_toTopOf="@+id/textMarker3" />
+
+                <ImageView
+                    android:id="@+id/icon_tiga"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginTop="25dp"
+                    android:src="@drawable/icon_tiga"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.054"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textMarker3"></ImageView>
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="40dp"
+                    android:src="@drawable/sk_3"
+                    app:layout_constraintStart_toEndOf="@+id/icon_tiga"
+                    app:layout_constraintTop_toTopOf="@+id/icon_tiga"></ImageView>
+
+                <TextView
+                    android:id="@+id/isi_tiga"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="40dp"
+                    android:text="Contoh"
+                    android:textColor="@color/black"
+                    android:textSize="8pt"
+                    app:layout_constraintStart_toEndOf="@+id/icon_tiga"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+                <ImageView
+                    android:id="@+id/icon_empat"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:layout_marginTop="30dp"
+                    android:src="@drawable/icon_empat"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.054"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/icon_tiga"></ImageView>
+
+                <ImageView
+                    android:id="@+id/imageView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="40dp"
+                    android:src="@drawable/sk_4"
+                    app:layout_constraintStart_toEndOf="@+id/icon_empat"
+                    app:layout_constraintTop_toTopOf="@+id/icon_empat"></ImageView>
+
+                <TextView
+                    android:id="@+id/isi_empat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="40dp"
+                    android:text="Contoh"
+                    android:textColor="@color/black"
+                    android:textSize="8pt"
+                    app:layout_constraintStart_toEndOf="@+id/icon_empat"
+                    app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="vertical" />-->
+    </ScrollView>
+
+<!--    <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_marginTop="80dp"-->
+<!--        android:background="@drawable/kotak_putih"-->
+<!--        android:paddingLeft="10dp"-->
+<!--        android:layout_marginLeft="20dp"-->
+<!--        android:layout_marginRight="20dp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/toolbar">-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/icon_satu"-->
+<!--            android:layout_width="80dp"-->
+<!--            android:layout_height="80dp"-->
+<!--            android:layout_marginTop="20dp"-->
+<!--            android:src="@drawable/icon_satu"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintHorizontal_bias="0.054"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent"></ImageView>-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/imageView1"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="40dp"-->
+<!--            android:src="@drawable/sk_1"-->
+<!--            app:layout_constraintStart_toEndOf="@+id/icon_satu"-->
+<!--            app:layout_constraintTop_toTopOf="@+id/icon_satu"></ImageView>-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/isi_satu"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="40dp"-->
+<!--            android:text="Contoh"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="8pt"-->
+<!--            app:layout_constraintStart_toEndOf="@+id/icon_satu"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/imageView1" />-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/icon_dua"-->
+<!--            android:layout_width="80dp"-->
+<!--            android:layout_height="80dp"-->
+<!--            android:layout_marginTop="30dp"-->
+<!--            android:src="@drawable/icon_dua"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintHorizontal_bias="0.054"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/icon_satu"></ImageView>-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/imageView2"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="40dp"-->
+<!--            android:src="@drawable/sk_2"-->
+<!--            app:layout_constraintStart_toEndOf="@+id/icon_dua"-->
+<!--            app:layout_constraintTop_toTopOf="@+id/icon_dua"></ImageView>-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/isi_dua"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="40dp"-->
+<!--            android:text="Contoh"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="8pt"-->
+<!--            app:layout_constraintStart_toEndOf="@+id/icon_dua"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/imageView2" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/textMarker"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="30dp"-->
+<!--            android:text="*"-->
+<!--            android:textColor="@color/red"-->
+<!--            android:textSize="10pt"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintHorizontal_bias="0.044"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/icon_dua" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/textKet"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginLeft="5dp"-->
+<!--            android:text="ket1"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="8pt"-->
+<!--            app:layout_constraintStart_toEndOf="@+id/textMarker"-->
+<!--            app:layout_constraintTop_toTopOf="@+id/textMarker" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/textMarker2"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="*"-->
+<!--            android:textColor="@color/red"-->
+<!--            android:textSize="10pt"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintHorizontal_bias="0.044"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/textMarker" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/textKet2"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginLeft="5dp"-->
+<!--            android:text="ket2"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="8pt"-->
+<!--            app:layout_constraintStart_toEndOf="@+id/textMarker2"-->
+<!--            app:layout_constraintTop_toTopOf="@+id/textMarker2" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/textMarker3"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="20dp"-->
+<!--            android:text="*"-->
+<!--            android:textColor="@color/red"-->
+<!--            android:textSize="10pt"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintHorizontal_bias="0.044"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/textMarker2" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/textKet3"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginLeft="5dp"-->
+<!--            android:text="ket3"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="8pt"-->
+<!--            app:layout_constraintStart_toEndOf="@+id/textMarker3"-->
+<!--            app:layout_constraintTop_toTopOf="@+id/textMarker3" />-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/icon_tiga"-->
+<!--            android:layout_width="80dp"-->
+<!--            android:layout_height="80dp"-->
+<!--            android:layout_marginTop="25dp"-->
+<!--            android:src="@drawable/icon_tiga"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintHorizontal_bias="0.054"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/textMarker3"></ImageView>-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/imageView3"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="40dp"-->
+<!--            android:src="@drawable/sk_3"-->
+<!--            app:layout_constraintStart_toEndOf="@+id/icon_tiga"-->
+<!--            app:layout_constraintTop_toTopOf="@+id/icon_tiga"></ImageView>-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/isi_tiga"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="40dp"-->
+<!--            android:text="Contoh"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="8pt"-->
+<!--            app:layout_constraintStart_toEndOf="@+id/icon_tiga"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/imageView3" />-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/icon_empat"-->
+<!--            android:layout_width="80dp"-->
+<!--            android:layout_height="80dp"-->
+<!--            android:layout_marginTop="30dp"-->
+<!--            android:src="@drawable/icon_empat"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintHorizontal_bias="0.054"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/icon_tiga"></ImageView>-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/imageView4"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="40dp"-->
+<!--            android:src="@drawable/sk_4"-->
+<!--            app:layout_constraintStart_toEndOf="@+id/icon_empat"-->
+<!--            app:layout_constraintTop_toTopOf="@+id/icon_empat"></ImageView>-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/isi_empat"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="40dp"-->
+<!--            android:text="Contoh"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="8pt"-->
+<!--            app:layout_constraintStart_toEndOf="@+id/icon_empat"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/imageView4" />-->
+
+<!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
+</androidx.constraintlayout.widget.ConstraintLayout>
