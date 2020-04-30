@@ -15,6 +15,7 @@
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:titleTextColor="@android:color/white"></androidx.appcompat.widget.Toolbar>
@@ -27,7 +28,7 @@
         android:background="@drawable/back"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.071"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <LinearLayout
@@ -48,99 +49,135 @@
             android:gravity="center"
             android:text="Kalimat"
             android:textColor="@color/white"
-            android:textSize="15pt" />
+            android:textSize="10pt" />
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="268dp"
-        android:layout_height="205dp"
-        android:layout_marginTop="440dp"
-        android:background="@drawable/kotak_putih"
-        android:elevation="-5dp"
+        android:id="@+id/layout"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="220dp"
+        android:background="@drawable/button_pilih"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.3"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></LinearLayout>
+        app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/txtFormal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="Romanzi Formal"
-        android:textSize="12pt"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ln" />
-
-    <TextView
-        android:id="@+id/txtLafalFormal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Lafal Formal"
-        android:textSize="12pt"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtFormal" />
-
-    <ImageButton
-        android:id="@+id/btnSoundFormal"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="30dp"
-        android:background="@drawable/sound"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtLafalFormal" />
+        <TextView
+            android:id="@+id/txtFormalNama"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Formal"
+            android:textColor="@color/white"
+            android:textSize="10pt" />
+    </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/layout2"
+        android:layout_width="100dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="500dp"
+        android:background="@drawable/button_pilih"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/txtInformalNama"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Informal"
+            android:textColor="@color/white"
+            android:textSize="10pt" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
         android:layout_width="268dp"
         android:layout_height="205dp"
-        android:layout_marginTop="208dp"
         android:background="@drawable/kotak_putih"
         android:elevation="-5dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.559"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></LinearLayout>
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4"
+        app:layout_constraintVertical_bias="0.576">
 
-    <TextView
-        android:id="@+id/txtInformal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="Romanzi Informal"
-        android:textSize="12pt"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnSoundFormal" />
+        <TextView
+            android:id="@+id/txtInformal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Romanzi Informal"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="8pt" />
 
-    <TextView
-        android:id="@+id/txtLafalInformal"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Lafal Informal"
-        android:textSize="12pt"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtInformal" />
+        <TextView
+            android:id="@+id/txtLafalInformal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textStyle="italic"
+            android:text="Lafal Informal"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="10pt" />
 
-    <ImageButton
-        android:id="@+id/btnSoundInformal"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_marginTop="30dp"
-        android:background="@drawable/sound"
+        <ImageButton
+            android:id="@+id/btnSoundInformal"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/sound" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="268dp"
+        android:layout_height="205dp"
+        android:layout_marginTop="236dp"
+        android:background="@drawable/kotak_putih"
+        android:elevation="-5dp"
+        android:gravity="center"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.559"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtLafalInformal" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/txtFormal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Romanzi Formal"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="8pt" />
+
+        <TextView
+            android:id="@+id/txtLafalFormal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textStyle="italic"
+            android:text="Lafal Formal"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="10pt" />
+
+        <ImageButton
+            android:id="@+id/btnSoundFormal"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/sound" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

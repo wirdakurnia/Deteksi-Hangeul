@@ -51,15 +51,6 @@
             android:textSize="11pt" />
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/img_alur"
-        android:layout_width="90dp"
-        android:layout_height="60dp"
-        android:translationZ="10dp"
-        android:layout_marginStart="40dp"
-        app:layout_constraintStart_toStartOf="@+id/linearLayout2"
-        app:layout_constraintTop_toBottomOf="@+id/ln"></ImageView>
-
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
@@ -70,8 +61,8 @@
         android:paddingRight="10dp"
         android:paddingBottom="16dp"
         android:weightSum="1"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="-83dp">
+        tools:layout_editor_absoluteX="182dp"
+        tools:layout_editor_absoluteY="0dp">
 
         <RelativeLayout
             android:id="@+id/paintViewLayout"
@@ -79,6 +70,14 @@
             android:layout_height="0dp"
             android:layout_marginTop="170dp"
             android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/img_alur"
+                android:layout_width="90dp"
+                android:layout_height="60dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="5dp"
+                android:translationZ="10dp"></ImageView>
 
             <com.wirnin.hanguldetection.PaintView
                 android:id="@+id/paintView"
