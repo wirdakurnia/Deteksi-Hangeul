@@ -79,7 +79,7 @@
         android:layout_height="65dp"
         android:layout_marginTop="30dp"
         android:background="@drawable/button_pilih"
-        android:text="     PENYUSUNAN\nSUKU KATA"
+        android:text="  PENYUSUNAN SUKU\nKATA"
         android:onClick="keMenuPenyusunan"
         android:textColor="@color/white"
         android:textSize="10pt"
