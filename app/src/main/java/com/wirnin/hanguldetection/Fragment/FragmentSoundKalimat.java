@@ -53,16 +53,6 @@ public class FragmentSoundKalimat extends Fragment {
 
         Toolbar toolbar = rootview.findViewById(R.id.toolbar);
         toolbar.setTitle(R.string.app_name);
-        toolbar.setNavigationIcon(R.drawable.homekecil);
-        toolbar.setNavigationOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent backhome = new Intent(getActivity(), MenuUtama.class);
-                        startActivity(backhome);
-                    }
-                }
-        );
 
 
         txtArti = rootview.findViewById(R.id.txtArti);

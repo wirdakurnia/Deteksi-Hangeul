@@ -74,16 +74,6 @@ public class FragmentTulisHangul extends Fragment implements View.OnClickListene
 
         Toolbar toolbar = rootview.findViewById(R.id.toolbar);
         toolbar.setTitle(R.string.app_name);
-        toolbar.setNavigationIcon(R.drawable.homekecil);
-        toolbar.setNavigationOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent backhome = new Intent(getActivity(), MenuUtama.class);
-                        startActivity(backhome);
-                    }
-                }
-        );
 
         final Bundle data = new Bundle();
         String jenisLatihan = "tulis";

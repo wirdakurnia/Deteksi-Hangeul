@@ -58,16 +58,6 @@ public class LatihanActivity extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         toolbar.setTitle(R.string.app_name);
-        toolbar.setNavigationIcon(R.drawable.homekecil);
-        toolbar.setNavigationOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent backhome = new Intent(getApplicationContext(), MenuUtama.class);
-                        startActivity(backhome);
-                    }
-                }
-        );
 
 
 //        nextButton.setOnClickListener(new View.OnClickListener() {
