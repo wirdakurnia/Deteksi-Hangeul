@@ -80,6 +80,8 @@
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="0dp"
                 android:layout_marginTop="0dp"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp"
                 android:translationZ="10dp"></ImageView>
 
             <com.wirnin.hanguldetection.PaintView
@@ -96,7 +98,7 @@
                 android:gravity="center"
                 android:text="@string/draw"
                 android:textAppearance="?android:attr/textAppearanceLarge"
-                android:textColor="@color/Gray" />
+                android:textColor="@color/white" />
         </RelativeLayout>
 
         <LinearLayout
