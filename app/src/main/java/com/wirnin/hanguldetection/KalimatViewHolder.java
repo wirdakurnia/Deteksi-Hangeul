@@ -5,11 +5,12 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class KalimatViewHolder extends RecyclerView.ViewHolder {
     public TextView tvArti;
-    public LinearLayout ln;
+    public ConstraintLayout ln;
 
     public KalimatViewHolder(@NonNull View itemView) {
         super(itemView);
