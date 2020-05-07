@@ -59,8 +59,7 @@ public class FragmentSoundKata extends Fragment {
                              Bundle savedInstanceState) {
         View rootview = inflater.inflate(R.layout.fragment_sound_kata, container, false);
 
-        Toolbar toolbar = rootview.findViewById(R.id.toolbar);
-        toolbar.setTitle(R.string.app_name);
+        final Toolbar toolbar = rootview.findViewById(R.id.toolbar);
 
         final Bundle data = new Bundle();
         String jenisLatihan = "baca";
@@ -96,6 +95,8 @@ public class FragmentSoundKata extends Fragment {
                     txtArti.setText(arti);
                     txtLafal.setText(lafal);
                     Picasso.get().load(gambar).into(imgKata);
+
+                    toolbar.setTitle("Kata "+'"'+arti+'"');
 
                     btnBack.setOnClickListener(new View.OnClickListener() {
                         @Override

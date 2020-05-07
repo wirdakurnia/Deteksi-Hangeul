@@ -72,8 +72,7 @@ public class FragmentTulisHangul extends Fragment implements View.OnClickListene
                              Bundle savedInstanceState) {
         View rootview = inflater.inflate(R.layout.fragment_tulis_hangul, container, false);
 
-        Toolbar toolbar = rootview.findViewById(R.id.toolbar);
-        toolbar.setTitle(R.string.app_name);
+        final Toolbar toolbar = rootview.findViewById(R.id.toolbar);
 
         final Bundle data = new Bundle();
         String jenisLatihan = "tulis";
@@ -125,6 +124,8 @@ public class FragmentTulisHangul extends Fragment implements View.OnClickListene
                         txtHuruf.setText("("+huruf+")");
                         Picasso.get().load(alur).into(img_alur);
 
+                        toolbar.setTitle("Huruf "+hangeul);
+
                         btnBack.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
@@ -162,6 +163,9 @@ public class FragmentTulisHangul extends Fragment implements View.OnClickListene
                         txtHangeul.setText(hangeul);
                         txtHuruf.setText("("+huruf+")");
                         Picasso.get().load(alur).into(img_alur);
+
+                        toolbar.setTitle("Huruf "+ hangeul);
+
                         btnBack.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {

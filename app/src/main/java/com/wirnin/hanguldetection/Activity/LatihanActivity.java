@@ -31,8 +31,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 public class LatihanActivity extends AppCompatActivity {
-//    private TextView questionView;
-    //private ImageButton nextButton;
     private Button  pilihan1, pilihan2, pilihan3;
     private ImageView imgs;
     Dialog myDialog;
@@ -46,8 +44,6 @@ public class LatihanActivity extends AppCompatActivity {
 
         myDialog = new Dialog(this);
 
-//        questionView = findViewById(R.id.textView);
-        //nextButton = findViewById(R.id.buttonNext);
         imgs =  findViewById(R.id.imageView);
 
         pilihan1 = findViewById(R.id.pilihan1);
@@ -57,17 +53,19 @@ public class LatihanActivity extends AppCompatActivity {
         displayQuestion();
 
         Toolbar toolbar = findViewById(R.id.toolbar);
-        toolbar.setTitle(R.string.app_name);
+        toolbar.setTitle("Latihan");
+        toolbar.setNavigationIcon(R.drawable.homekecil);
+        toolbar.setNavigationOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent backhome = new Intent(getApplicationContext(), MenuUtama.class);
+                        startActivity(backhome);
+                    }
+                }
+        );
 
-
-//        nextButton.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                displayQuestion();
-//            }
-//        });
     }
-
 
     private void displayQuestion() {
         final Query questionToDisplay = FirebaseDatabase.getInstance()

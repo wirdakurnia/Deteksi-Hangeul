@@ -27,8 +27,10 @@ public class MateriBacaActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_materi_baca);
 
+        Bundle extras = getIntent().getExtras();
+        jenis = extras.getString(KEY_JENIS);
+
         Toolbar toolbar = findViewById(R.id.toolbar);
-        toolbar.setTitle(R.string.app_name);
         toolbar.setNavigationIcon(R.drawable.homekecil);
         toolbar.setNavigationOnClickListener(
                 new View.OnClickListener() {
@@ -39,9 +41,6 @@ public class MateriBacaActivity extends AppCompatActivity {
                     }
                 }
         );
-
-        Bundle extras = getIntent().getExtras();
-        jenis = extras.getString(KEY_JENIS);
 
         assert jenis != null;
 

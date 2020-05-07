@@ -54,8 +54,7 @@ public class FragmentSoundHuruf extends Fragment {
 
         View rootview = inflater.inflate(R.layout.fragment_sound_huruf, container, false);
 
-        Toolbar toolbar = rootview.findViewById(R.id.toolbar);
-        toolbar.setTitle(R.string.app_name);
+        final Toolbar toolbar = rootview.findViewById(R.id.toolbar);
 
         final Bundle data = new Bundle();
         String jenisLatihan = "baca";
@@ -90,6 +89,8 @@ public class FragmentSoundHuruf extends Fragment {
                         txtHangeul.setText(hangeul);
                         txtRomanzi.setText(romanzi);
                         txtLafal.setText(lafal);
+
+                        toolbar.setTitle("Huruf "+ hangeul);
 
                         btnBack.setOnClickListener(new View.OnClickListener() {
                             @Override
@@ -149,6 +150,8 @@ public class FragmentSoundHuruf extends Fragment {
                         txtHangeul.setText(hangeul);
                         txtRomanzi.setText(romanzi);
                         txtLafal.setText(lafal);
+                        toolbar.setTitle("Huruf "+ hangeul);
+
                         btnBack.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {

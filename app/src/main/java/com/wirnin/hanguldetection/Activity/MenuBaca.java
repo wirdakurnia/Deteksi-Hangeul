@@ -22,7 +22,7 @@ public class MenuBaca extends AppCompatActivity {
         setContentView(R.layout.activity_menu_baca);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
-        toolbar.setTitle(R.string.app_name);
+        toolbar.setTitle("Jenis Materi Baca");
         toolbar.setNavigationIcon(R.drawable.homekecil);
         toolbar.setNavigationOnClickListener(
                 new View.OnClickListener() {

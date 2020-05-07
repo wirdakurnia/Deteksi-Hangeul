@@ -19,7 +19,7 @@ public class MenuTulis extends AppCompatActivity {
         setContentView(R.layout.activity_menu_tulis);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
-        toolbar.setTitle(R.string.app_name);
+        toolbar.setTitle("Jenis Materi Tulis");
         toolbar.setNavigationIcon(R.drawable.homekecil);
         toolbar.setNavigationOnClickListener(
                 new View.OnClickListener() {

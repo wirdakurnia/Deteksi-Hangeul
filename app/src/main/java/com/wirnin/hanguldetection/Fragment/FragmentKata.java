@@ -17,7 +17,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.wirnin.hanguldetection.Activity.MenuUtama;
 import com.wirnin.hanguldetection.Kata;
-import com.wirnin.hanguldetection.KataViewHolder;
+import com.wirnin.hanguldetection.ViewHolder.KataViewHolder;
 import com.wirnin.hanguldetection.R;
 
 import androidx.annotation.NonNull;
@@ -51,8 +51,8 @@ public class FragmentKata extends Fragment {
                              Bundle savedInstanceState) {
         View rootview = inflater.inflate(R.layout.fragment_kata, container, false);
 
-        Toolbar toolbar = rootview.findViewById(R.id.toolbar);
-        toolbar.setTitle(R.string.app_name);
+        final Toolbar toolbar = rootview.findViewById(R.id.toolbar);
+        toolbar.setTitle("Kata");
         toolbar.setNavigationIcon(R.drawable.homekecil);
         toolbar.setNavigationOnClickListener(
                 new View.OnClickListener() {

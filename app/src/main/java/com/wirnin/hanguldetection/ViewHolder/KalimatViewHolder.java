@@ -1,12 +1,14 @@
-package com.wirnin.hanguldetection;
+package com.wirnin.hanguldetection.ViewHolder;
 
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.wirnin.hanguldetection.Kalimat;
+import com.wirnin.hanguldetection.R;
 
 public class KalimatViewHolder extends RecyclerView.ViewHolder {
     public TextView tvArti;

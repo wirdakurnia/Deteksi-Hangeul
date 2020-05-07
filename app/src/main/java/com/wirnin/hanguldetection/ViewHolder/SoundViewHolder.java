@@ -1,4 +1,4 @@
-package com.wirnin.hanguldetection;
+package com.wirnin.hanguldetection.ViewHolder;
 
 import android.view.View;
 import android.widget.Button;
@@ -6,6 +6,9 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.wirnin.hanguldetection.Huruf;
+import com.wirnin.hanguldetection.R;
 
 public class SoundViewHolder extends RecyclerView.ViewHolder {
     TextView txtHangeul, txtRomanzi, txtLafal;
@@ -22,6 +25,5 @@ public class SoundViewHolder extends RecyclerView.ViewHolder {
         txtHangeul.setText(huruf.hangeul);
         txtRomanzi.setText(huruf.huruf);
         txtLafal.setText(huruf.lafal);
-        //btnPlay.setOnClickListener(onClickListener)
     }
 }

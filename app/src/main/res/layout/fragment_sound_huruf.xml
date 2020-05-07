@@ -54,7 +54,7 @@
     <LinearLayout
         android:layout_width="300dp"
         android:layout_height="300dp"
-        android:layout_marginTop="110dp"
+        android:layout_marginTop="120dp"
         android:elevation="-5dp"
         android:background="@drawable/kotak_putih"
         app:layout_constraintEnd_toEndOf="parent"
@@ -66,7 +66,7 @@
         android:id="@+id/txtRomanzi"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="30dp"
         android:text="Romanzi"
         android:textSize="12pt"
         android:textColor="@color/black"

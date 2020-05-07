@@ -18,7 +18,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.wirnin.hanguldetection.Activity.MenuUtama;
 import com.wirnin.hanguldetection.Huruf;
-import com.wirnin.hanguldetection.HurufViewHolder;
+import com.wirnin.hanguldetection.ViewHolder.HurufViewHolder;
 import com.wirnin.hanguldetection.R;
 
 import androidx.annotation.NonNull;
@@ -61,8 +61,8 @@ public class FragmentKonsonan extends Fragment {
                              Bundle savedInstanceState) {
         View rootview = inflater.inflate(R.layout.fragment_konsonan, container, false);
 
-        Toolbar toolbar = rootview.findViewById(R.id.toolbar);
-        toolbar.setTitle(R.string.app_name);
+        final Toolbar toolbar = rootview.findViewById(R.id.toolbar);
+        toolbar.setTitle("Huruf Konsonan");
         toolbar.setNavigationIcon(R.drawable.homekecil);
         toolbar.setNavigationOnClickListener(
                 new View.OnClickListener() {

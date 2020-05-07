@@ -27,8 +27,12 @@ public class MateriTulisActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_materi_tulis);
 
+        Bundle extras = getIntent().getExtras();
+        jenis = extras.getString(KEY_JENIS);
+
+        assert jenis != null;
+
         Toolbar toolbar = findViewById(R.id.toolbar);
-        toolbar.setTitle(R.string.app_name);
         toolbar.setNavigationIcon(R.drawable.homekecil);
         toolbar.setNavigationOnClickListener(
                 new View.OnClickListener() {
@@ -39,11 +43,6 @@ public class MateriTulisActivity extends AppCompatActivity {
                     }
                 }
         );
-
-        Bundle extras = getIntent().getExtras();
-        jenis = extras.getString(KEY_JENIS);
-
-        assert jenis != null;
 
         Bundle data = new Bundle();
         String jenisLatihan = "tulis";

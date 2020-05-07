@@ -1,4 +1,4 @@
-package com.wirnin.hanguldetection;
+package com.wirnin.hanguldetection.ViewHolder;
 
 import android.view.View;
 import android.widget.LinearLayout;
@@ -6,6 +6,9 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.wirnin.hanguldetection.Huruf;
+import com.wirnin.hanguldetection.R;
 
 public class HurufViewHolder extends RecyclerView.ViewHolder{
     public TextView tvHangeul;

@@ -51,9 +51,7 @@ public class FragmentSoundKalimat extends Fragment {
 
         View rootview = inflater.inflate(R.layout.fragment_sound_kalimat, container, false);
 
-        Toolbar toolbar = rootview.findViewById(R.id.toolbar);
-        toolbar.setTitle(R.string.app_name);
-
+        final Toolbar toolbar = rootview.findViewById(R.id.toolbar);
 
         txtArti = rootview.findViewById(R.id.txtArti);
         txtFormal = rootview.findViewById(R.id.txtFormal);
@@ -90,6 +88,8 @@ public class FragmentSoundKalimat extends Fragment {
                     txtInformal.setText(informal);
                     txtLafalFormal.setText(lafalFormal);
                     txtLafalInformal.setText(lafalInformal);
+
+                    toolbar.setTitle("Percakapan Dasar");
 
                     btnBack.setOnClickListener(new View.OnClickListener() {
                         @Override

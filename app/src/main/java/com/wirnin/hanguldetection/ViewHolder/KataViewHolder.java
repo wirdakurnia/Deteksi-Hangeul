@@ -1,10 +1,12 @@
-package com.wirnin.hanguldetection;
+package com.wirnin.hanguldetection.ViewHolder;
 
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
+import com.wirnin.hanguldetection.Kata;
+import com.wirnin.hanguldetection.R;
 
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;

@@ -20,7 +20,7 @@ public class PenyusunanSukuKata extends AppCompatActivity {
         setContentView(R.layout.activity_penyusunan_sukukata);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
-        toolbar.setTitle(R.string.app_name);
+        toolbar.setTitle("Penyusunan Suku Kata");
         toolbar.setNavigationIcon(R.drawable.homekecil);
         toolbar.setNavigationOnClickListener(
                 new View.OnClickListener() {

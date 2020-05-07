@@ -23,7 +23,7 @@ public class MenuPercakapan extends AppCompatActivity {
         setContentView(R.layout.activity_menu_percakapan);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
-        toolbar.setTitle(R.string.app_name);
+        toolbar.setTitle("Percakapan Dasar");
         toolbar.setNavigationIcon(R.drawable.homekecil);
         toolbar.setNavigationOnClickListener(
                 new View.OnClickListener() {
